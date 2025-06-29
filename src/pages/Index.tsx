@@ -1,5 +1,5 @@
 
-import { Phone, MapPin, Clock, Facebook, Star, Sparkles, Heart, User } from "lucide-react";
+import { Phone, MapPin, Clock, Facebook, Star, Sparkles, Heart, User, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -65,14 +65,54 @@ const Index = () => {
   ];
 
   const additionalServices = [
-    { category: "Pedicure & Manicure", services: ["Pedicure", "Manicure"], icon: <Sparkles className="h-5 w-5" /> },
-    { category: "Eyelash Extension", services: ["Full Set Cluster - Starting from £18", "Party Lashes - £8"], icon: <Heart className="h-5 w-5" /> },
-    { category: "Tinting", services: ["Eye Brows - £6", "Eye Lashes - £8"], icon: <Star className="h-5 w-5" /> },
-    { category: "Facial", services: ["Mini Facial - £15", "Full Facial (Cleansing/Whitening/Gold) - £25", "Herbal Facial - £30"], icon: <User className="h-5 w-5" /> },
-    { category: "Massage", services: ["Head Massage - £15 (With Herbal Oil / Except Oil)"], icon: <Heart className="h-5 w-5" /> },
-    { category: "Henna", services: ["One Hand / Foot - Starting from £5", "Both Hands / Feet - Starting from £10"], icon: <Sparkles className="h-5 w-5" /> },
-    { category: "Hair Cut", services: ["Trimming - £7", "Any Other Cut - Starting from £12", "Children (Under 10) - £10"], icon: <Star className="h-5 w-5" /> },
-    { category: "Makeup", services: ["Party Makeup - Starting from £30", "Bridal Makeup - Starting from £150"], icon: <Heart className="h-5 w-5" /> }
+    { 
+      category: "Pedicure & Manicure", 
+      services: ["Pedicure", "Manicure"], 
+      icon: <Sparkles className="h-5 w-5" />,
+      rates: []
+    },
+    { 
+      category: "Eyelash Extension", 
+      services: ["Full Set Cluster", "Party Lashes"], 
+      icon: <Heart className="h-5 w-5" />,
+      rates: ["Starting from £18", "£8"]
+    },
+    { 
+      category: "Tinting", 
+      services: ["Eye Brows", "Eye Lashes"], 
+      icon: <Star className="h-5 w-5" />,
+      rates: ["£6", "£8"]
+    },
+    { 
+      category: "Facial", 
+      services: ["Mini Facial", "Full Facial (Cleansing/Whitening/Gold)", "Herbal Facial"], 
+      icon: <User className="h-5 w-5" />,
+      rates: ["£15", "£25", "£30"]
+    },
+    { 
+      category: "Massage", 
+      services: ["Head Massage (With Herbal Oil / Except Oil)"], 
+      icon: <Heart className="h-5 w-5" />,
+      rates: ["£15"]
+    },
+    { 
+      category: "Henna", 
+      services: ["One Hand / Foot", "Both Hands / Feet"], 
+      icon: <Sparkles className="h-5 w-5" />,
+      rates: ["Starting from £5", "Starting from £10"]
+    },
+    { 
+      category: "Hair Cut", 
+      services: ["Trimming", "Any Other Cut", "Children (Under 10)"], 
+      icon: <Star className="h-5 w-5" />,
+      rates: ["£7", "Starting from £12", "£10"]
+    },
+    { 
+      category: "Makeup", 
+      services: ["Party Makeup", "Bridal Makeup"], 
+      icon: <Heart className="h-5 w-5" />,
+      rates: ["Starting from £30", "Starting from £150"]
+    }
   ];
 
   return (
@@ -88,7 +128,7 @@ const Index = () => {
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2 text-rose-700">
                 <Phone className="h-4 w-4" />
-                <span className="font-medium">07368 594 210</span>
+                <span className="font-medium">+44 7368 594210</span>
               </div>
               <Button className="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
                 Book Now
@@ -136,7 +176,10 @@ const Index = () => {
               <Card className="bg-white/80 backdrop-blur-sm border-rose-200 hover:shadow-lg transition-all duration-300 hover:scale-105">
                 <CardContent className="p-6 text-center">
                   <MapPin className="h-8 w-8 text-rose-600 mx-auto mb-3" />
-                  <h3 className="font-semibold text-rose-800 mb-2">Location</h3>
+                  <h3 className="font-semibold text-rose-800 mb-2 flex items-center justify-center gap-2">
+                    <MapPin className="h-4 w-4" />
+                    Location
+                  </h3>
                   <p className="text-gray-700 text-sm">
                     21-23 Woodgrange Road<br />
                     London E7 8BA<br />
@@ -148,7 +191,10 @@ const Index = () => {
               <Card className="bg-white/80 backdrop-blur-sm border-rose-200 hover:shadow-lg transition-all duration-300 hover:scale-105">
                 <CardContent className="p-6 text-center">
                   <Clock className="h-8 w-8 text-rose-600 mx-auto mb-3" />
-                  <h3 className="font-semibold text-rose-800 mb-2">Opening Hours</h3>
+                  <h3 className="font-semibold text-rose-800 mb-2 flex items-center justify-center gap-2">
+                    <Clock className="h-4 w-4" />
+                    Opening Hours
+                  </h3>
                   <p className="text-gray-700 text-sm">
                     Monday - Saturday<br />
                     6:00 AM to 8:00 PM<br />
@@ -160,13 +206,18 @@ const Index = () => {
               <Card className="bg-white/80 backdrop-blur-sm border-rose-200 hover:shadow-lg transition-all duration-300 hover:scale-105">
                 <CardContent className="p-6 text-center">
                   <Phone className="h-8 w-8 text-rose-600 mx-auto mb-3" />
-                  <h3 className="font-semibold text-rose-800 mb-2">Contact</h3>
+                  <h3 className="font-semibold text-rose-800 mb-2 flex items-center justify-center gap-2">
+                    <Phone className="h-4 w-4" />
+                    Contact
+                  </h3>
                   <p className="text-gray-700 text-sm mb-3">
-                    Tel: 07368 594 210
+                    Tel: +44 7368 594210
                   </p>
                   <div className="flex items-center justify-center gap-2">
                     <Facebook className="h-4 w-4 text-blue-600" />
-                    <span className="text-sm text-gray-600">Femina Beauty Impression</span>
+                    <a href="https://www.facebook.com/profile.php?id=100066574856943" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:underline">
+                      Femina Beauty Impression
+                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -178,7 +229,11 @@ const Index = () => {
       {/* Service Gallery Section */}
       <section className="py-16 px-4 bg-white/70">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center text-rose-800 mb-12">Our Beauty Services</h2>
+          <h2 className="text-4xl font-bold text-center text-rose-800 mb-12 flex items-center justify-center gap-3">
+            <Star className="h-8 w-8 text-rose-600" />
+            Our Beauty Services
+            <Star className="h-8 w-8 text-rose-600" />
+          </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {serviceImages.map((service, index) => (
@@ -201,9 +256,15 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services & Rates Section */}
       <section className="py-16 px-4 bg-gradient-to-br from-rose-50 to-pink-50">
         <div className="container mx-auto">
+          <h2 className="text-4xl font-bold text-center text-rose-800 mb-12 flex items-center justify-center gap-3">
+            <DollarSign className="h-8 w-8 text-rose-600" />
+            Services & Rates
+            <DollarSign className="h-8 w-8 text-rose-600" />
+          </h2>
+          
           <div className="grid gap-8">
             {/* Threading */}
             <Card className="bg-white/90 backdrop-blur-sm border-rose-200 shadow-xl hover:shadow-2xl transition-all duration-300">
@@ -264,7 +325,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            {/* Additional Services Grid */}
+            {/* Additional Services Grid with Rates */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {additionalServices.map((serviceGroup, groupIndex) => (
                 <Card key={groupIndex} className="bg-white/90 backdrop-blur-sm border-rose-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
@@ -277,8 +338,14 @@ const Index = () => {
                   <CardContent className="p-4">
                     <div className="space-y-2">
                       {serviceGroup.services.map((service, serviceIndex) => (
-                        <div key={serviceIndex} className="text-sm text-gray-700 p-2 bg-gradient-to-r from-rose-25 to-pink-25 rounded border-l-3 border-rose-300 hover:bg-rose-50 transition-colors duration-200">
-                          {service}
+                        <div key={serviceIndex} className="p-3 bg-gradient-to-r from-rose-25 to-pink-25 rounded border-l-3 border-rose-300 hover:bg-rose-50 transition-colors duration-200">
+                          <div className="text-sm text-gray-700 font-medium">{service}</div>
+                          {serviceGroup.rates[serviceIndex] && (
+                            <div className="text-xs text-rose-600 font-semibold mt-1 flex items-center gap-1">
+                              <DollarSign className="h-3 w-3" />
+                              {serviceGroup.rates[serviceIndex]}
+                            </div>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -301,14 +368,16 @@ const Index = () => {
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
             <Button size="lg" className="bg-white text-rose-600 hover:bg-rose-50 font-semibold px-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
               <Phone className="h-5 w-5 mr-2" />
-              Call: 07368 594 210
+              Call: +44 7368 594210
             </Button>
             <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <p className="font-medium flex items-center gap-2 justify-center">
                 <Facebook className="h-5 w-5" />
                 Follow us on Facebook
               </p>
-              <p className="opacity-90">@feminabeautyimpression</p>
+              <a href="https://www.facebook.com/profile.php?id=100066574856943" target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100 hover:underline">
+                Femina Beauty Impression
+              </a>
             </div>
           </div>
         </div>
@@ -322,8 +391,14 @@ const Index = () => {
             <h3 className="text-2xl font-bold">Femina Beauty Impression</h3>
             <Sparkles className="h-6 w-6 text-rose-300" />
           </div>
-          <p className="mb-2 text-rose-100">21-23 Woodgrange Road, London E7 8BA (Inside Post Office)</p>
-          <p className="mb-6 text-rose-100">Tel: 07368 594 210</p>
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <MapPin className="h-4 w-4 text-rose-300" />
+            <p className="text-rose-100">21-23 Woodgrange Road, London E7 8BA (Inside Post Office)</p>
+          </div>
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <Phone className="h-4 w-4 text-rose-300" />
+            <p className="text-rose-100">Tel: +44 7368 594210</p>
+          </div>
           <div className="border-t border-rose-800 pt-6">
             <p className="text-rose-200 text-sm">
               © 2024 Femina Beauty Impression. All rights reserved.
