@@ -1,5 +1,4 @@
-
-import { Star, Sparkles, Heart, User, Pound, Scissors } from "lucide-react";
+import { Star, Sparkles, Heart, User, PoundSterling, Scissors } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -113,7 +112,7 @@ const ServicesSection = () => {
     <div key={service.name} className="flex justify-between items-center p-4 bg-gradient-to-r from-rose-25 to-pink-25 rounded-lg border-l-4 border-rose-300 hover:bg-rose-50 transition-colors duration-200">
       <span className="text-gray-700 font-medium">{service.name}</span>
       <div className="flex items-center gap-1 text-rose-600 font-semibold">
-        <Pound className="h-4 w-4" />
+        <PoundSterling className="h-4 w-4" />
         {service.price.replace('£', '')}
       </div>
     </div>
@@ -145,7 +144,7 @@ const ServicesSection = () => {
             <div className="flex justify-between items-center">
               <span className="text-gray-700 font-medium">{service.name}</span>
               <div className="flex items-center gap-1 text-rose-600 font-semibold">
-                <Pound className="h-4 w-4" />
+                <PoundSterling className="h-4 w-4" />
                 {service.price.replace('£', '')}
               </div>
             </div>
