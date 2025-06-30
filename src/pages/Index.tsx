@@ -1,9 +1,9 @@
-
 import { Phone, MapPin, Clock, Facebook, Star, Sparkles, Heart, User, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import ServicesSection from "@/components/ServicesSection";
 
 const Index = () => {
   const heroImages = [
@@ -15,7 +15,7 @@ const Index = () => {
   const serviceImages = [
     {
       title: "Threading & Eyebrow Shaping",
-      image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
       description: "Precision eyebrow threading and shaping"
     },
     {
@@ -32,86 +32,6 @@ const Index = () => {
       title: "Bridal Services",
       image: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
       description: "Complete bridal beauty packages"
-    }
-  ];
-
-  const threadingServices = [
-    "Eye Brow",
-    "Upper Lip", 
-    "Chin",
-    "Forehead",
-    "Neck",
-    "Side Face",
-    "Full Face"
-  ];
-
-  const faceWaxServices = [
-    "Eye Brows",
-    "Upper Lip",
-    "Chin", 
-    "Forehead",
-    "Neck",
-    "Side Face",
-    "Full Face"
-  ];
-
-  const bodyWaxServices = [
-    "Half Arm",
-    "Full Arm",
-    "Under Arm",
-    "Half Leg", 
-    "Full Leg",
-    "Full Body (Except Bikini)"
-  ];
-
-  const additionalServices = [
-    { 
-      category: "Pedicure & Manicure", 
-      services: ["Pedicure", "Manicure"], 
-      icon: <Sparkles className="h-5 w-5" />,
-      rates: []
-    },
-    { 
-      category: "Eyelash Extension", 
-      services: ["Full Set Cluster", "Party Lashes"], 
-      icon: <Heart className="h-5 w-5" />,
-      rates: ["Starting from £18", "£8"]
-    },
-    { 
-      category: "Tinting", 
-      services: ["Eye Brows", "Eye Lashes"], 
-      icon: <Star className="h-5 w-5" />,
-      rates: ["£6", "£8"]
-    },
-    { 
-      category: "Facial", 
-      services: ["Mini Facial", "Full Facial (Cleansing/Whitening/Gold)", "Herbal Facial"], 
-      icon: <User className="h-5 w-5" />,
-      rates: ["£15", "£25", "£30"]
-    },
-    { 
-      category: "Massage", 
-      services: ["Head Massage (With Herbal Oil / Except Oil)"], 
-      icon: <Heart className="h-5 w-5" />,
-      rates: ["£15"]
-    },
-    { 
-      category: "Henna", 
-      services: ["One Hand / Foot", "Both Hands / Feet"], 
-      icon: <Sparkles className="h-5 w-5" />,
-      rates: ["Starting from £5", "Starting from £10"]
-    },
-    { 
-      category: "Hair Cut", 
-      services: ["Trimming", "Any Other Cut", "Children (Under 10)"], 
-      icon: <Star className="h-5 w-5" />,
-      rates: ["£7", "Starting from £12", "£10"]
-    },
-    { 
-      category: "Makeup", 
-      services: ["Party Makeup", "Bridal Makeup"], 
-      icon: <Heart className="h-5 w-5" />,
-      rates: ["Starting from £30", "Starting from £150"]
     }
   ];
 
@@ -256,106 +176,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services & Rates Section */}
-      <section className="py-16 px-4 bg-gradient-to-br from-rose-50 to-pink-50">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center text-rose-800 mb-12 flex items-center justify-center gap-3">
-            <DollarSign className="h-8 w-8 text-rose-600" />
-            Services & Rates
-            <DollarSign className="h-8 w-8 text-rose-600" />
-          </h2>
-          
-          <div className="grid gap-8">
-            {/* Threading */}
-            <Card className="bg-white/90 backdrop-blur-sm border-rose-200 shadow-xl hover:shadow-2xl transition-all duration-300">
-              <CardHeader className="bg-gradient-to-r from-rose-100 to-pink-100">
-                <CardTitle className="text-2xl text-rose-800 flex items-center gap-3">
-                  <Star className="h-6 w-6 text-rose-600" />
-                  Threading
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-6">
-                <div className="grid md:grid-cols-4 gap-3">
-                  {threadingServices.map((service, index) => (
-                    <Badge key={index} variant="secondary" className="text-center p-3 bg-rose-50 text-rose-700 hover:bg-rose-100 transition-colors duration-200 cursor-pointer">
-                      {service}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Waxing */}
-            <Card className="bg-white/90 backdrop-blur-sm border-rose-200 shadow-xl hover:shadow-2xl transition-all duration-300">
-              <CardHeader className="bg-gradient-to-r from-purple-100 to-pink-100">
-                <CardTitle className="text-2xl text-rose-800 flex items-center gap-3">
-                  <Sparkles className="h-6 w-6 text-purple-600" />
-                  Waxing Services
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h3 className="font-semibold text-rose-700 mb-3 text-lg flex items-center gap-2">
-                      <Heart className="h-4 w-4" />
-                      Face Wax
-                    </h3>
-                    <div className="grid gap-2">
-                      {faceWaxServices.map((service, index) => (
-                        <Badge key={index} variant="outline" className="justify-start p-3 border-purple-200 text-purple-700 hover:bg-purple-50 transition-colors duration-200">
-                          {service}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-rose-700 mb-3 text-lg flex items-center gap-2">
-                      <Sparkles className="h-4 w-4" />
-                      Body Wax
-                    </h3>
-                    <div className="grid gap-2">
-                      {bodyWaxServices.map((service, index) => (
-                        <Badge key={index} variant="outline" className="justify-start p-3 border-purple-200 text-purple-700 hover:bg-purple-50 transition-colors duration-200">
-                          {service}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Additional Services Grid with Rates */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {additionalServices.map((serviceGroup, groupIndex) => (
-                <Card key={groupIndex} className="bg-white/90 backdrop-blur-sm border-rose-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  <CardHeader className="bg-gradient-to-br from-rose-50 to-pink-50 pb-3">
-                    <CardTitle className="text-lg text-rose-800 flex items-center gap-2">
-                      {serviceGroup.icon}
-                      {serviceGroup.category}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-4">
-                    <div className="space-y-2">
-                      {serviceGroup.services.map((service, serviceIndex) => (
-                        <div key={serviceIndex} className="p-3 bg-gradient-to-r from-rose-25 to-pink-25 rounded border-l-3 border-rose-300 hover:bg-rose-50 transition-colors duration-200">
-                          <div className="text-sm text-gray-700 font-medium">{service}</div>
-                          {serviceGroup.rates[serviceIndex] && (
-                            <div className="text-xs text-rose-600 font-semibold mt-1 flex items-center gap-1">
-                              <DollarSign className="h-3 w-3" />
-                              {serviceGroup.rates[serviceIndex]}
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Dynamic Services Section */}
+      <ServicesSection />
 
       {/* Call to Action */}
       <section className="py-16 px-4 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white relative overflow-hidden">
