@@ -35,6 +35,10 @@ const Index = () => {
     }
   ];
 
+  const handleBookNow = () => {
+    window.location.href = "tel:+447368594210";
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
       {/* Header */}
@@ -50,7 +54,10 @@ const Index = () => {
                 <Phone className="h-4 w-4" />
                 <span className="font-medium">+44 7368 594210</span>
               </div>
-              <Button className="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button 
+                className="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                onClick={handleBookNow}
+              >
                 Book Now
               </Button>
             </div>
@@ -189,7 +196,11 @@ const Index = () => {
             Contact us today to schedule your beauty treatment
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <Button size="lg" className="bg-white text-rose-600 hover:bg-rose-50 font-semibold px-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <Button 
+              size="lg" 
+              className="bg-white text-rose-600 hover:bg-rose-50 font-semibold px-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              onClick={handleBookNow}
+            >
               <Phone className="h-5 w-5 mr-2" />
               Call: +44 7368 594210
             </Button>
