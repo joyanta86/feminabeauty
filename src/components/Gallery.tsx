@@ -1,9 +1,9 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Plus, X, Camera, GalleryHorizontal, Shield, Settings } from "lucide-react";
+import { Plus, X, Camera, GalleryHorizontal, Shield, Settings, Upload } from "lucide-react";
 import { toast } from "sonner";
 import { useAdmin } from "@/contexts/AdminContext";
 import AdminLogin from "./AdminLogin";
@@ -18,6 +18,7 @@ interface GalleryImage {
 
 const Gallery = () => {
   const { isAdminLoggedIn } = useAdmin();
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [images, setImages] = useState<GalleryImage[]>([
     {
       id: '1',
@@ -44,6 +45,49 @@ const Gallery = () => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [showAdminLogin, setShowAdminLogin] = useState(false);
   const [showAdminPanel, setShowAdminPanel] = useState(false);
+  const [uploadMethod, setUploadMethod] = useState<'url' | 'file'>('url');
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    // Check if file is an image
+    if (!file.type.startsWith('image/')) {
+      toast("Please select an image file");
+      return;
+    }
+
+    // Check file size (limit to 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      toast("Image size must be less than 5MB");
+      return;
+    }
+
+    // Create a local URL for the image
+    const imageUrl = URL.createObjectURL(file);
+    
+    if (!newImageTitle.trim()) {
+      toast("Please enter a title for the image");
+      return;
+    }
+
+    const newImage: GalleryImage = {
+      id: Date.now().toString(),
+      url: imageUrl,
+      title: newImageTitle,
+      description: ''
+    };
+
+    setImages([...images, newImage]);
+    setNewImageTitle('');
+    setShowAddForm(false);
+    toast("Image uploaded successfully!");
+    
+    // Reset the file input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
 
   const handleAddImage = () => {
     if (!newImageUrl || !newImageTitle) {
@@ -76,6 +120,10 @@ const Gallery = () => {
     } else {
       setShowAdminLogin(true);
     }
+  };
+
+  const triggerFileUpload = () => {
+    fileInputRef.current?.click();
   };
 
   return (
@@ -127,16 +175,28 @@ const Gallery = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Image URL</label>
-                  <input
-                    type="url"
-                    value={newImageUrl}
-                    onChange={(e) => setNewImageUrl(e.target.value)}
-                    placeholder="https://example.com/image.jpg"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
-                  />
+                {/* Upload Method Selection */}
+                <div className="flex gap-2 mb-4">
+                  <Button
+                    type="button"
+                    onClick={() => setUploadMethod('file')}
+                    variant={uploadMethod === 'file' ? 'default' : 'outline'}
+                    className="flex-1"
+                  >
+                    <Upload className="h-4 w-4 mr-2" />
+                    Upload File
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={() => setUploadMethod('url')}
+                    variant={uploadMethod === 'url' ? 'default' : 'outline'}
+                    className="flex-1"
+                  >
+                    URL
+                  </Button>
                 </div>
+
+                {/* Title Input (always visible) */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Title</label>
                   <input
@@ -147,15 +207,57 @@ const Gallery = () => {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
                   />
                 </div>
+
+                {/* File Upload */}
+                {uploadMethod === 'file' && (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Select Image</label>
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept="image/*"
+                      onChange={handleFileUpload}
+                      className="hidden"
+                    />
+                    <Button
+                      type="button"
+                      onClick={triggerFileUpload}
+                      variant="outline"
+                      className="w-full"
+                    >
+                      <Upload className="h-4 w-4 mr-2" />
+                      Choose Image File
+                    </Button>
+                    <p className="text-xs text-gray-500 mt-1">Max size: 5MB. Formats: JPG, PNG, GIF</p>
+                  </div>
+                )}
+
+                {/* URL Input */}
+                {uploadMethod === 'url' && (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Image URL</label>
+                    <input
+                      type="url"
+                      value={newImageUrl}
+                      onChange={(e) => setNewImageUrl(e.target.value)}
+                      placeholder="https://example.com/image.jpg"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-500"
+                    />
+                  </div>
+                )}
+
                 <div className="flex gap-2">
-                  <Button onClick={handleAddImage} className="flex-1 bg-rose-600 hover:bg-rose-700">
-                    Add Photo
-                  </Button>
+                  {uploadMethod === 'url' && (
+                    <Button onClick={handleAddImage} className="flex-1 bg-rose-600 hover:bg-rose-700">
+                      Add Photo
+                    </Button>
+                  )}
                   <Button 
                     onClick={() => {
                       setShowAddForm(false);
                       setNewImageUrl('');
                       setNewImageTitle('');
+                      setUploadMethod('url');
                     }} 
                     variant="outline" 
                     className="flex-1"
