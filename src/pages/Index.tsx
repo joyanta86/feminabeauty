@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import ServicesSection from "@/components/ServicesSection";
+import Gallery from "@/components/Gallery";
 
 const Index = () => {
   const heroImages = [
@@ -186,6 +187,9 @@ const Index = () => {
 
       {/* Dynamic Services Section */}
       <ServicesSection />
+
+      {/* Photo Gallery Section */}
+      <Gallery />
 
       {/* Call to Action */}
       <section className="py-16 px-4 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white relative overflow-hidden">
