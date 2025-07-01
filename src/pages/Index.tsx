@@ -117,8 +117,9 @@ const Index = () => {
                   </h3>
                   <p className="text-gray-700 text-sm">
                     Monday - Saturday<br />
-                    6:00 AM to 8:00 PM<br />
-                    <span className="text-rose-600">(9:30 AM to 11 AM by appointment only)</span>
+                    11:00 AM to 6:00 PM<br />
+                    <span className="text-rose-600 block mt-1">10:00 AM - 11:00 AM: By appointment only</span>
+                    <span className="text-rose-600 block">6:00 PM - 7:00 PM: By appointment only</span>
                   </p>
                 </CardContent>
               </Card>
