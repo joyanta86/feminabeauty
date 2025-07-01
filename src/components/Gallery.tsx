@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Plus, X, Camera, GalleryHorizontal } from "lucide-react";
+import { Plus, X, Camera, GalleryHorizontal, Shield, Settings } from "lucide-react";
 import { toast } from "sonner";
+import { useAdmin } from "@/contexts/AdminContext";
+import AdminLogin from "./AdminLogin";
+import AdminPanel from "./AdminPanel";
 
 interface GalleryImage {
   id: string;
@@ -14,6 +17,7 @@ interface GalleryImage {
 }
 
 const Gallery = () => {
+  const { isAdminLoggedIn } = useAdmin();
   const [images, setImages] = useState<GalleryImage[]>([
     {
       id: '1',
@@ -38,6 +42,8 @@ const Gallery = () => {
   const [newImageUrl, setNewImageUrl] = useState('');
   const [newImageTitle, setNewImageTitle] = useState('');
   const [showAddForm, setShowAddForm] = useState(false);
+  const [showAdminLogin, setShowAdminLogin] = useState(false);
+  const [showAdminPanel, setShowAdminPanel] = useState(false);
 
   const handleAddImage = () => {
     if (!newImageUrl || !newImageTitle) {
@@ -64,6 +70,14 @@ const Gallery = () => {
     toast("Image removed from gallery");
   };
 
+  const handleAdminAccess = () => {
+    if (isAdminLoggedIn) {
+      setShowAddForm(true);
+    } else {
+      setShowAdminLogin(true);
+    }
+  };
+
   return (
     <section className="py-16 px-4 bg-gradient-to-br from-purple-50 via-rose-50 to-pink-50">
       <div className="container mx-auto">
@@ -78,17 +92,33 @@ const Gallery = () => {
           </p>
         </div>
 
-        {/* Add New Image Section */}
+        {/* Admin Controls */}
         <div className="mb-8 text-center">
-          {!showAddForm ? (
-            <Button
-              onClick={() => setShowAddForm(true)}
-              className="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <Plus className="h-4 w-4 mr-2" />
-              Add New Photo
-            </Button>
-          ) : (
+          <div className="flex justify-center gap-4 mb-4">
+            {!showAddForm ? (
+              <Button
+                onClick={handleAdminAccess}
+                className="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <Shield className="h-4 w-4 mr-2" />
+                {isAdminLoggedIn ? 'Add New Photo' : 'Admin Login'}
+              </Button>
+            ) : null}
+            
+            {isAdminLoggedIn && (
+              <Button
+                onClick={() => setShowAdminPanel(true)}
+                variant="outline"
+                className="border-rose-600 text-rose-600 hover:bg-rose-50"
+              >
+                <Settings className="h-4 w-4 mr-2" />
+                Admin Panel
+              </Button>
+            )}
+          </div>
+
+          {/* Add New Image Form - Only visible to logged-in admins */}
+          {showAddForm && isAdminLoggedIn && (
             <Card className="max-w-md mx-auto bg-white/90 backdrop-blur-sm border-rose-200">
               <CardHeader>
                 <CardTitle className="text-rose-800 flex items-center gap-2">
@@ -155,14 +185,17 @@ const Gallery = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <Button
-                  onClick={() => handleRemoveImage(image.id)}
-                  size="sm"
-                  variant="destructive"
-                  className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-8 w-8 p-0"
-                >
-                  <X className="h-4 w-4" />
-                </Button>
+                {/* Remove button - Only visible to logged-in admins */}
+                {isAdminLoggedIn && (
+                  <Button
+                    onClick={() => handleRemoveImage(image.id)}
+                    size="sm"
+                    variant="destructive"
+                    className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-8 w-8 p-0"
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                )}
               </div>
               <CardContent className="p-4">
                 <h3 className="font-semibold text-rose-800 mb-2">{image.title}</h3>
@@ -185,6 +218,16 @@ const Gallery = () => {
           </div>
         )}
       </div>
+
+      {/* Admin Login Modal */}
+      {showAdminLogin && (
+        <AdminLogin onClose={() => setShowAdminLogin(false)} />
+      )}
+
+      {/* Admin Panel Modal */}
+      {showAdminPanel && (
+        <AdminPanel onClose={() => setShowAdminPanel(false)} />
+      )}
     </section>
   );
 };
