@@ -1,14 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Settings, GalleryHorizontal, Camera } from "lucide-react";
-import { Link } from "react-router-dom";
+import { GalleryHorizontal, Camera } from "lucide-react";
 import { toast } from "sonner";
-import { useAdmin } from "@/contexts/AdminContext";
-import AdminLogin from "./AdminLogin";
-import AdminPanel from "./AdminPanel";
 
 interface GalleryImage {
   id: string;
@@ -18,8 +13,6 @@ interface GalleryImage {
 }
 
 const Gallery = () => {
-  const { isAdminLoggedIn } = useAdmin();
-  
   // Get images from localStorage
   const getStoredImages = (): GalleryImage[] => {
     try {
@@ -50,8 +43,6 @@ const Gallery = () => {
   };
 
   const [images, setImages] = useState<GalleryImage[]>(getStoredImages());
-  const [showAdminLogin, setShowAdminLogin] = useState(false);
-  const [showAdminPanel, setShowAdminPanel] = useState(false);
 
   // Refresh images from localStorage when component mounts or when returning from admin
   useEffect(() => {
@@ -84,31 +75,6 @@ const Gallery = () => {
           </p>
         </div>
 
-        {/* Admin Controls */}
-        <div className="mb-8 text-center">
-          <div className="flex justify-center gap-4">
-            <Button
-              asChild
-              className="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <Link to="/admin">
-                <Shield className="h-4 w-4 mr-2" />
-                {isAdminLoggedIn ? 'Manage Gallery' : 'Admin Login'}
-              </Link>
-            </Button>
-            
-            {isAdminLoggedIn && (
-              <Button
-                onClick={() => setShowAdminPanel(true)}
-                variant="outline"
-                className="border-rose-600 text-rose-600 hover:bg-rose-50"
-              >
-                <Settings className="h-4 w-4 mr-2" />
-                Admin Panel
-              </Button>
-            )}
-          </div>
-        </div>
 
         {/* Gallery Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -149,16 +115,6 @@ const Gallery = () => {
           </div>
         )}
       </div>
-
-      {/* Admin Login Modal */}
-      {showAdminLogin && (
-        <AdminLogin onClose={() => setShowAdminLogin(false)} />
-      )}
-
-      {/* Admin Panel Modal */}
-      {showAdminPanel && (
-        <AdminPanel onClose={() => setShowAdminPanel(false)} />
-      )}
     </section>
   );
 };

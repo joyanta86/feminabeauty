@@ -189,8 +189,8 @@ const Index = () => {
       {/* Dynamic Services Section */}
       <ServicesSection />
 
-      {/* Photo Gallery Section */}
       <Gallery />
+      <Chatbot />
 
       {/* Call to Action */}
       <section className="py-16 px-4 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white relative overflow-hidden">
