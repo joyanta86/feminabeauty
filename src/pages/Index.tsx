@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import ServicesSection from "@/components/ServicesSection";
 import Gallery from "@/components/Gallery";
+import Chatbot from "@/components/Chatbot";
 
 const Index = () => {
   const heroImages = [
