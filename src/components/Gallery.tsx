@@ -76,11 +76,16 @@ const Gallery = () => {
       const newImage: GalleryImage = {
         id: Date.now().toString(),
         url: imageUrl,
-        title: newImageTitle,
+        title: newImageTitle.trim(),
         description: ''
       };
 
-      setImages(prevImages => [...prevImages, newImage]);
+      // Force state update with functional update
+      setImages(currentImages => {
+        const updatedImages = [...currentImages, newImage];
+        console.log('Updated images:', updatedImages);
+        return updatedImages;
+      });
       setNewImageTitle('');
       setShowAddForm(false);
       toast("Image uploaded successfully!");
