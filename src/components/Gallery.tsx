@@ -63,30 +63,39 @@ const Gallery = () => {
       return;
     }
 
-    // Create a local URL for the image
-    const imageUrl = URL.createObjectURL(file);
-    
     if (!newImageTitle.trim()) {
       toast("Please enter a title for the image");
       return;
     }
 
-    const newImage: GalleryImage = {
-      id: Date.now().toString(),
-      url: imageUrl,
-      title: newImageTitle,
-      description: ''
-    };
+    // Convert file to base64 for persistent storage
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const imageUrl = e.target?.result as string;
+      
+      const newImage: GalleryImage = {
+        id: Date.now().toString(),
+        url: imageUrl,
+        title: newImageTitle,
+        description: ''
+      };
 
-    setImages([...images, newImage]);
-    setNewImageTitle('');
-    setShowAddForm(false);
-    toast("Image uploaded successfully!");
+      setImages(prevImages => [...prevImages, newImage]);
+      setNewImageTitle('');
+      setShowAddForm(false);
+      toast("Image uploaded successfully!");
+      
+      // Reset the file input
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    };
     
-    // Reset the file input
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
+    reader.onerror = () => {
+      toast("Error reading file. Please try again.");
+    };
+    
+    reader.readAsDataURL(file);
   };
 
   const handleAddImage = () => {
