@@ -109,11 +109,14 @@ const ServicesSection = () => {
   ];
 
   const renderServiceCard = (service: { name: string; price: string }) => (
-    <div key={service.name} className="flex justify-between items-center p-4 bg-gradient-to-r from-rose-25 to-pink-25 rounded-lg border-l-4 border-rose-300 hover:bg-rose-50 transition-colors duration-200">
-      <span className="text-gray-700 font-medium">{service.name}</span>
-      <div className="flex items-center gap-1 text-rose-600 font-semibold">
-        <PoundSterling className="h-4 w-4" />
-        {service.price.replace('£', '')}
+    <div key={service.name} className="group flex justify-between items-center p-5 bg-gradient-to-r from-white via-rose-50/50 to-pink-50/50 rounded-xl border border-rose-200/60 hover:border-rose-300 hover:shadow-lg hover:shadow-rose-100/50 transition-all duration-300 hover:scale-[1.02] relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-rose-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <span className="text-gray-800 font-semibold text-sm relative z-10 group-hover:text-rose-800 transition-colors duration-200">{service.name}</span>
+      <div className="flex items-center gap-1 text-rose-600 font-bold text-lg relative z-10 group-hover:text-rose-700 transition-colors duration-200">
+        <PoundSterling className="h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
+        <span className="bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent group-hover:from-rose-700 group-hover:to-pink-700">
+          {service.price.replace('£', '')}
+        </span>
       </div>
     </div>
   );
@@ -137,15 +140,18 @@ const ServicesSection = () => {
     });
 
     return (
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {allServices.map((service, index) => (
-          <div key={index} className="p-4 bg-white rounded-lg shadow-sm border border-rose-100 hover:shadow-md transition-shadow duration-200">
-            <div className="text-xs text-rose-500 font-medium mb-1">{service.category}</div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-700 font-medium">{service.name}</span>
-              <div className="flex items-center gap-1 text-rose-600 font-semibold">
-                <PoundSterling className="h-4 w-4" />
-                {service.price.replace('£', '')}
+          <div key={index} className="group p-5 bg-gradient-to-br from-white via-rose-50/30 to-pink-50/30 rounded-xl shadow-md border border-rose-200/50 hover:shadow-lg hover:shadow-rose-100/40 transition-all duration-300 hover:scale-[1.02] relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-rose-500/3 to-pink-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="text-xs text-rose-600 font-semibold mb-2 uppercase tracking-wide relative z-10">{service.category}</div>
+            <div className="flex justify-between items-center relative z-10">
+              <span className="text-gray-800 font-semibold text-sm group-hover:text-rose-800 transition-colors duration-200">{service.name}</span>
+              <div className="flex items-center gap-1 text-rose-600 font-bold text-lg group-hover:text-rose-700 transition-colors duration-200">
+                <PoundSterling className="h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
+                <span className="bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent group-hover:from-rose-700 group-hover:to-pink-700">
+                  {service.price.replace('£', '')}
+                </span>
               </div>
             </div>
           </div>
