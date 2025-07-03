@@ -56,7 +56,7 @@ const Chatbot = () => {
 
     // Store address responses
     if (input.includes('address') || input.includes('location') || input.includes('where') || input.includes('store')) {
-      return "📍 Our store is located at:\n\n🏪 Beauty Paradise Salon\n123 Beauty Street, Downtown\nCity Center, State 12345\n\n📞 Phone: (555) 123-4567\n⏰ Hours: Mon-Sat 9AM-7PM, Sun 10AM-5PM";
+      return "📍 Our store is located at:\n\n🏪 Femina Beauty Impression\n21-23 Woodgrange Road\nLondon E7 8BA\n(Inside Post Office)\n\n📞 Phone: +44 7368 594210\n⏰ Hours: Monday-Saturday 11:00 AM to 6:00 PM\n🕙 By appointment: 10:00-11:00 AM & 6:00-7:00 PM";
     }
 
     // Beauty facts and tips
@@ -81,7 +81,7 @@ const Chatbot = () => {
     }
 
     if (input.includes('appointment') || input.includes('book') || input.includes('schedule')) {
-      return "📅 To book an appointment, please call us at (555) 123-4567 or visit our store! We offer threading, facials, makeup services, and more. Walk-ins welcome! 💖";
+      return "📅 To book an appointment, please call us at +44 7368 594210 or visit our store! We offer threading, waxing, facials, nails, makeup services, and more. Walk-ins welcome! 💖";
     }
 
     if (input.includes('service') || input.includes('price') || input.includes('cost')) {
@@ -89,7 +89,7 @@ const Chatbot = () => {
     }
 
     if (input.includes('hours') || input.includes('open') || input.includes('time')) {
-      return "⏰ Store Hours:\nMonday - Saturday: 9:00 AM - 7:00 PM\nSunday: 10:00 AM - 5:00 PM\n\nWe're here to make you beautiful! 💫";
+      return "⏰ Store Hours:\nMonday - Saturday: 11:00 AM to 6:00 PM\n🕙 By appointment only:\n  • 10:00 AM - 11:00 AM\n  • 6:00 PM - 7:00 PM\n\nWe're here to make you beautiful! 💫";
     }
 
     // General beauty facts
