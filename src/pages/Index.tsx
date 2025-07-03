@@ -6,6 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import ServicesSection from "@/components/ServicesSection";
 import Gallery from "@/components/Gallery";
 import Chatbot from "@/components/Chatbot";
+import ContactMap from "@/components/ContactMap";
 
 const Index = () => {
   const heroImages = [
@@ -47,7 +48,7 @@ const Index = () => {
       <header className="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-rose-100">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold text-rose-800 flex items-center gap-2">
+            <div className="text-2xl font-bold font-playfair text-rose-800 flex items-center gap-2">
               <Sparkles className="h-6 w-6 text-rose-600" />
               Femina Beauty Impression
             </div>
@@ -92,11 +93,11 @@ const Index = () => {
         
         <div className="container mx-auto text-center relative z-10">
           <div className="bg-white/90 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-2xl max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-rose-800 mb-6 leading-tight animate-fade-in">
+            <h1 className="text-4xl md:text-6xl font-bold font-playfair text-rose-800 mb-6 leading-tight animate-fade-in">
               Premium Beauty Services
-              <span className="block text-2xl md:text-3xl text-rose-600 mt-2">in the Heart of London</span>
+              <span className="block text-2xl md:text-3xl text-rose-600 mt-2 font-poppins">in the Heart of London</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto font-poppins">
               Experience professional beauty treatments in our welcoming salon. From threading to bridal makeup, we offer comprehensive beauty services with attention to detail.
             </p>
             
@@ -159,7 +160,7 @@ const Index = () => {
       {/* Service Gallery Section */}
       <section className="py-16 px-4 bg-white/70">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center text-rose-800 mb-12 flex items-center justify-center gap-3">
+          <h2 className="text-4xl font-bold font-playfair text-center text-rose-800 mb-12 flex items-center justify-center gap-3">
             <Star className="h-8 w-8 text-rose-600" />
             Our Beauty Services
             <Star className="h-8 w-8 text-rose-600" />
@@ -190,14 +191,15 @@ const Index = () => {
       <ServicesSection />
 
       <Gallery />
+      <ContactMap />
       <Chatbot />
 
       {/* Call to Action */}
       <section className="py-16 px-4 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Book Your Appointment?</h2>
-          <p className="text-xl mb-8 opacity-90">
+          <h2 className="text-3xl md:text-4xl font-bold font-playfair mb-6">Ready to Book Your Appointment?</h2>
+          <p className="text-xl mb-8 opacity-90 font-poppins">
             Contact us today to schedule your beauty treatment
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
@@ -227,7 +229,7 @@ const Index = () => {
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Sparkles className="h-6 w-6 text-rose-300" />
-            <h3 className="text-2xl font-bold">Femina Beauty Impression</h3>
+            <h3 className="text-2xl font-bold font-playfair">Femina Beauty Impression</h3>
             <Sparkles className="h-6 w-6 text-rose-300" />
           </div>
           <div className="flex items-center justify-center gap-2 mb-2">

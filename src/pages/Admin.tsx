@@ -128,6 +128,15 @@ const Admin = () => {
     fileInputRef.current?.click();
   };
 
+  const handleSaveImage = () => {
+    if (!newImageTitle.trim()) {
+      toast("Please enter a title for the image");
+      return;
+    }
+    // The actual file upload is handled by the file input change event
+    triggerFileUpload();
+  };
+
   if (!isAdminLoggedIn) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-50 via-rose-50 to-pink-50 flex items-center justify-center p-4">
@@ -254,15 +263,25 @@ const Admin = () => {
                   onChange={handleFileUpload}
                   className="hidden"
                 />
-                <Button
-                  type="button"
-                  onClick={triggerFileUpload}
-                  variant="outline"
-                  className="w-full"
-                >
-                  <Upload className="h-4 w-4 mr-2" />
-                  Choose Image File
-                </Button>
+                <div className="flex gap-2">
+                  <Button
+                    type="button"
+                    onClick={triggerFileUpload}
+                    variant="outline"
+                    className="flex-1"
+                  >
+                    <Upload className="h-4 w-4 mr-2" />
+                    Choose Image File
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={handleSaveImage}
+                    className="bg-rose-600 hover:bg-rose-700 px-6"
+                    disabled={!newImageTitle.trim()}
+                  >
+                    Save
+                  </Button>
+                </div>
                 <p className="text-xs text-gray-500 mt-1">Max size: 5MB. Formats: JPG, PNG, GIF</p>
               </div>
             )}
