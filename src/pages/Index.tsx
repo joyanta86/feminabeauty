@@ -46,22 +46,25 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
       {/* Header */}
       <header className="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-rose-100">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-3 lg:py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold font-playfair text-rose-800 flex items-center gap-2">
-              <Sparkles className="h-6 w-6 text-rose-600" />
-              Femina Beauty Impression
+            <div className="text-lg sm:text-xl md:text-2xl font-bold font-playfair text-rose-800 flex items-center gap-1 sm:gap-2">
+              <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-rose-600" />
+              <span className="hidden sm:inline">Femina Beauty Impression</span>
+              <span className="sm:hidden">Femina Beauty</span>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 text-rose-700">
+            <div className="flex items-center gap-2 md:gap-4">
+              <div className="hidden md:flex items-center gap-2 text-rose-700">
                 <Phone className="h-4 w-4" />
-                <span className="font-medium">+44 7368 594210</span>
+                <span className="font-medium text-sm lg:text-base">+44 7368 594210</span>
               </div>
               <Button 
-                className="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                size="sm"
+                className="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6"
                 onClick={handleBookNow}
               >
-                Book Now
+                <span className="hidden sm:inline">Book Now</span>
+                <span className="sm:hidden">Book</span>
               </Button>
             </div>
           </div>
@@ -69,13 +72,13 @@ const Index = () => {
       </header>
 
       {/* Hero Section with Image Carousel */}
-      <section className="relative py-20 px-4 overflow-hidden">
+      <section className="relative py-10 sm:py-16 lg:py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Carousel className="w-full h-full">
             <CarouselContent>
               {heroImages.map((image, index) => (
                 <CarouselItem key={index}>
-                  <div className="relative h-96 md:h-[500px]">
+                  <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px]">
                     <img 
                       src={image} 
                       alt={`Beauty salon ${index + 1}`}
@@ -86,23 +89,23 @@ const Index = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-4 bg-white/20 border-white/30 text-white hover:bg-white/30" />
-            <CarouselNext className="right-4 bg-white/20 border-white/30 text-white hover:bg-white/30" />
+            <CarouselPrevious className="left-2 lg:left-4 bg-white/20 border-white/30 text-white hover:bg-white/30 h-8 w-8 sm:h-10 sm:w-10" />
+            <CarouselNext className="right-2 lg:right-4 bg-white/20 border-white/30 text-white hover:bg-white/30 h-8 w-8 sm:h-10 sm:w-10" />
           </Carousel>
         </div>
         
         <div className="container mx-auto text-center relative z-10">
-          <div className="bg-white/90 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-2xl max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold font-playfair text-rose-800 mb-6 leading-tight animate-fade-in">
+          <div className="bg-white/90 backdrop-blur-md rounded-xl lg:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl max-w-4xl mx-auto">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-playfair text-rose-800 mb-4 lg:mb-6 leading-tight animate-fade-in">
               Premium Beauty Services
-              <span className="block text-2xl md:text-3xl text-rose-600 mt-2 font-poppins">in the Heart of London</span>
+              <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl text-rose-600 mt-1 lg:mt-2 font-poppins">in the Heart of London</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto font-poppins">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 mb-6 lg:mb-8 max-w-2xl mx-auto font-poppins">
               Experience professional beauty treatments in our welcoming salon. From threading to bridal makeup, we offer comprehensive beauty services with attention to detail.
             </p>
             
             {/* Contact Info Cards */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 mb-6 lg:mb-8">
               <Card className="bg-white/80 backdrop-blur-sm border-rose-200 hover:shadow-lg transition-all duration-300 hover:scale-105">
                 <CardContent className="p-6 text-center">
                   <MapPin className="h-8 w-8 text-rose-600 mx-auto mb-3" />
@@ -162,15 +165,15 @@ const Index = () => {
       </section>
 
       {/* Service Gallery Section */}
-      <section className="py-16 px-4 bg-white/70">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 bg-white/70">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold font-playfair text-center text-rose-800 mb-12 flex items-center justify-center gap-3">
-            <Star className="h-8 w-8 text-rose-600" />
-            Our Beauty Services
-            <Star className="h-8 w-8 text-rose-600" />
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-playfair text-center text-rose-800 mb-8 lg:mb-12 flex items-center justify-center gap-2 lg:gap-3">
+            <Star className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-rose-600" />
+            <span className="px-2">Our Beauty Services</span>
+            <Star className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-rose-600" />
           </h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12 lg:mb-16">
             {serviceImages.map((service, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 group">
                 <div className="relative h-48 overflow-hidden">
@@ -199,30 +202,30 @@ const Index = () => {
       <Chatbot />
 
       {/* Call to Action */}
-      <section className="py-16 px-4 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white relative overflow-hidden">
+      <section className="py-8 sm:py-12 lg:py-16 px-4 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold font-playfair mb-6">Ready to Book Your Appointment?</h2>
-          <p className="text-xl mb-8 opacity-90 font-poppins">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-playfair mb-4 lg:mb-6">Ready to Book Your Appointment?</h2>
+          <p className="text-base sm:text-lg lg:text-xl mb-6 lg:mb-8 opacity-90 font-poppins px-4">
             Contact us today to schedule your beauty treatment
           </p>
-          <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center items-center">
             <Button 
-              size="lg" 
-              className="bg-white text-rose-600 hover:bg-rose-50 font-semibold px-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              size="default"
+              className="bg-white text-rose-600 hover:bg-rose-50 font-semibold px-6 lg:px-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto text-sm lg:text-base"
               onClick={handleBookNow}
             >
-              <Phone className="h-5 w-5 mr-2" />
-              Call: +44 7368 594210
+              <Phone className="h-4 w-4 lg:h-5 lg:w-5 mr-2" />
+              <span className="hidden sm:inline">Call: </span>+44 7368 594210
             </Button>
-            <div className="flex gap-4">
-              <a href="https://www.facebook.com/profile.php?id=100066574856943" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-sm rounded-lg p-4 flex items-center gap-2 hover:bg-white/20 transition-all duration-300">
-                <Facebook className="h-5 w-5" />
-                <span>Facebook</span>
+            <div className="flex gap-3 lg:gap-4">
+              <a href="https://www.facebook.com/profile.php?id=100066574856943" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-sm rounded-lg p-3 lg:p-4 flex items-center gap-2 hover:bg-white/20 transition-all duration-300">
+                <Facebook className="h-4 w-4 lg:h-5 lg:w-5" />
+                <span className="hidden sm:inline text-sm lg:text-base">Facebook</span>
               </a>
-              <a href="https://www.instagram.com/feminabeautyimpression1?igsh=MXB1MHNjdjVscGhoZg%3D%3D" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-sm rounded-lg p-4 flex items-center gap-2 hover:bg-white/20 transition-all duration-300">
-                <Instagram className="h-5 w-5" />
-                <span>Instagram</span>
+              <a href="https://www.instagram.com/feminabeautyimpression1?igsh=MXB1MHNjdjVscGhoZg%3D%3D" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-sm rounded-lg p-3 lg:p-4 flex items-center gap-2 hover:bg-white/20 transition-all duration-300">
+                <Instagram className="h-4 w-4 lg:h-5 lg:w-5" />
+                <span className="hidden sm:inline text-sm lg:text-base">Instagram</span>
               </a>
             </div>
           </div>
@@ -230,23 +233,27 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-rose-900 text-white py-12 px-4">
+      <footer className="bg-rose-900 text-white py-8 sm:py-10 lg:py-12 px-4">
         <div className="container mx-auto text-center">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Sparkles className="h-6 w-6 text-rose-300" />
-            <h3 className="text-2xl font-bold font-playfair">Femina Beauty Impression</h3>
-            <Sparkles className="h-6 w-6 text-rose-300" />
+          <div className="flex items-center justify-center gap-2 mb-3 lg:mb-4">
+            <Sparkles className="h-5 w-5 lg:h-6 lg:w-6 text-rose-300" />
+            <h3 className="text-xl sm:text-2xl font-bold font-playfair">Femina Beauty Impression</h3>
+            <Sparkles className="h-5 w-5 lg:h-6 lg:w-6 text-rose-300" />
           </div>
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <MapPin className="h-4 w-4 text-rose-300" />
-            <p className="text-rose-100">21-23 Woodgrange Road, London E7 8BA (Inside Post Office)</p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 mb-2 text-sm sm:text-base">
+            <div className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-rose-300" />
+              <p className="text-rose-100">21-23 Woodgrange Road, London E7 8BA</p>
+            </div>
+            <span className="hidden sm:inline text-rose-300">•</span>
+            <p className="text-rose-100">(Inside Post Office)</p>
           </div>
-          <div className="flex items-center justify-center gap-2 mb-6">
+          <div className="flex items-center justify-center gap-2 mb-4 lg:mb-6">
             <Phone className="h-4 w-4 text-rose-300" />
-            <p className="text-rose-100">Tel: +44 7368 594210</p>
+            <p className="text-rose-100 text-sm sm:text-base">Tel: +44 7368 594210</p>
           </div>
-          <div className="border-t border-rose-800 pt-6">
-            <p className="text-rose-200 text-sm">
+          <div className="border-t border-rose-800 pt-4 lg:pt-6">
+            <p className="text-rose-200 text-xs sm:text-sm">
               © {new Date().getFullYear()} Femina Beauty Impression. All rights reserved.
             </p>
           </div>
