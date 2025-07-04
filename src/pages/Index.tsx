@@ -1,4 +1,4 @@
-import { Phone, MapPin, Clock, Facebook, Star, Sparkles, Heart, User, DollarSign } from "lucide-react";
+import { Phone, MapPin, Clock, Facebook, Instagram, Star, Sparkles, Heart, User, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -128,8 +128,8 @@ const Index = () => {
                   <p className="text-gray-700 text-sm">
                     Monday - Saturday<br />
                     11:00 AM to 6:00 PM<br />
-                    <span className="text-rose-600 block mt-1">10:00 AM - 11:00 AM: By appointment only</span>
-                    <span className="text-rose-600 block">6:00 PM - 7:00 PM: By appointment only</span>
+                    <span className="text-rose-600 block mt-1">By appointment: 10:00 AM - 11:00 AM</span>
+                    <span className="text-rose-600 block">By appointment: 6:00 PM - 7:00 PM</span>
                   </p>
                 </CardContent>
               </Card>
@@ -144,10 +144,14 @@ const Index = () => {
                   <p className="text-gray-700 text-sm mb-3">
                     Tel: +44 7368 594210
                   </p>
-                  <div className="flex items-center justify-center gap-2">
-                    <Facebook className="h-4 w-4 text-blue-600" />
-                    <a href="https://www.facebook.com/profile.php?id=100066574856943" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:underline">
-                      Femina Beauty Impression
+                  <div className="flex items-center justify-center gap-4">
+                    <a href="https://www.facebook.com/profile.php?id=100066574856943" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors duration-200">
+                      <Facebook className="h-5 w-5" />
+                      <span className="text-sm">Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/feminabeautyimpression1?igsh=MXB1MHNjdjVscGhoZg%3D%3D" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-pink-600 hover:text-pink-800 transition-colors duration-200">
+                      <Instagram className="h-5 w-5" />
+                      <span className="text-sm">Instagram</span>
                     </a>
                   </div>
                 </CardContent>
@@ -211,13 +215,14 @@ const Index = () => {
               <Phone className="h-5 w-5 mr-2" />
               Call: +44 7368 594210
             </Button>
-            <div className="text-center bg-white/10 backdrop-blur-sm rounded-lg p-4">
-              <p className="font-medium flex items-center gap-2 justify-center">
+            <div className="flex gap-4">
+              <a href="https://www.facebook.com/profile.php?id=100066574856943" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-sm rounded-lg p-4 flex items-center gap-2 hover:bg-white/20 transition-all duration-300">
                 <Facebook className="h-5 w-5" />
-                Follow us on Facebook
-              </p>
-              <a href="https://www.facebook.com/profile.php?id=100066574856943" target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100 hover:underline">
-                Femina Beauty Impression
+                <span>Facebook</span>
+              </a>
+              <a href="https://www.instagram.com/feminabeautyimpression1?igsh=MXB1MHNjdjVscGhoZg%3D%3D" target="_blank" rel="noopener noreferrer" className="bg-white/10 backdrop-blur-sm rounded-lg p-4 flex items-center gap-2 hover:bg-white/20 transition-all duration-300">
+                <Instagram className="h-5 w-5" />
+                <span>Instagram</span>
               </a>
             </div>
           </div>
