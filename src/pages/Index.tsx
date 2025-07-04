@@ -7,6 +7,11 @@ import ServicesSection from "@/components/ServicesSection";
 import Gallery from "@/components/Gallery";
 import Chatbot from "@/components/Chatbot";
 import ContactMap from "@/components/ContactMap";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import Testimonials from "@/components/Testimonials";
+import GoogleReviews from "@/components/GoogleReviews";
+import NewsletterPopup from "@/components/NewsletterPopup";
+import BookingCalendar from "@/components/BookingCalendar";
 
 const Index = () => {
   const heroImages = [
@@ -197,9 +202,20 @@ const Index = () => {
       {/* Dynamic Services Section */}
       <ServicesSection />
 
+      {/* Booking Calendar Section */}
+      <BookingCalendar />
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* Google Reviews Section */}
+      <GoogleReviews />
+
       <Gallery />
       <ContactMap />
       <Chatbot />
+      <WhatsAppButton />
+      <NewsletterPopup />
 
       {/* Call to Action */}
       <section className="py-8 sm:py-12 lg:py-16 px-4 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white relative overflow-hidden">
