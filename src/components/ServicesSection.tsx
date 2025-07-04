@@ -9,12 +9,12 @@ const ServicesSection = () => {
       name: "Threading",
       icon: <Star className="h-5 w-5" />,
       services: [
-        { name: "Eye Brow", price: "£5" },
-        { name: "Upper Lip", price: "£3" },
+        { name: "Eye Brow", price: "£4" },
+        { name: "Upper Lip", price: "£2" },
         { name: "Chin", price: "£3" },
         { name: "Forehead", price: "£3" },
         { name: "Neck", price: "£3" },
-        { name: "Side Face", price: "£5" },
+        { name: "Side Face", price: "£6" },
         { name: "Full Face", price: "£15" }
       ]
     },
@@ -26,82 +26,86 @@ const ServicesSection = () => {
         {
           name: "Face Waxing",
           services: [
-            { name: "Eye Brows", price: "£6" },
-            { name: "Upper Lip", price: "£4" },
+            { name: "Eye Brows", price: "£5" },
+            { name: "Upper Lip", price: "£3" },
             { name: "Chin", price: "£4" },
-            { name: "Forehead", price: "£4" },
-            { name: "Neck", price: "£4" },
+            { name: "Forehead", price: "£3" },
+            { name: "Neck", price: "£5" },
             { name: "Side Face", price: "£6" },
-            { name: "Full Face", price: "£18" }
+            { name: "Full Face", price: "£15" }
           ]
         },
         {
           name: "Body Waxing",
           services: [
-            { name: "Half Arm", price: "£12" },
-            { name: "Full Arm", price: "£18" },
-            { name: "Under Arm", price: "£8" },
-            { name: "Half Leg", price: "£15" },
-            { name: "Full Leg", price: "£25" },
-            { name: "Full Body (Except Bikini)", price: "£60" }
+            { name: "Half Arm", price: "£10" },
+            { name: "Full Arm", price: "£15" },
+            { name: "Under Arm", price: "£6" },
+            { name: "Half Leg", price: "£12" },
+            { name: "Full Leg", price: "£20" },
+            { name: "Inside Nose", price: "£6" },
+            { name: "Full Body", price: "£50" }
           ]
         }
       ]
     },
     {
       id: "nails",
-      name: "Nails",
+      name: "Nails & Lashes",
       icon: <Heart className="h-5 w-5" />,
-      services: [
-        { name: "Pedicure", price: "£25" },
-        { name: "Manicure", price: "£20" }
-      ]
-    },
-    {
-      id: "facial",
-      name: "Facial & Massage",
-      icon: <User className="h-5 w-5" />,
       subcategories: [
         {
-          name: "Eyelash & Tinting",
+          name: "Nails",
           services: [
-            { name: "Full Set Cluster", price: "From £18" },
-            { name: "Party Lashes", price: "£8" },
-            { name: "Eye Brows Tinting", price: "£6" },
-            { name: "Eye Lashes Tinting", price: "£8" }
+            { name: "Manicure", price: "£15" }
           ]
         },
         {
-          name: "Facial & Massage",
+          name: "Eyelash Extensions",
           services: [
-            { name: "Mini Facial", price: "£15" },
-            { name: "Full Facial (Cleansing/Whitening/Gold)", price: "£25" },
-            { name: "Herbal Facial", price: "£30" },
-            { name: "Head Massage (With/Without Herbal Oil)", price: "£15" }
+            { name: "Full Set", price: "£18" },
+            { name: "Party Lashes", price: "£8" }
+          ]
+        },
+        {
+          name: "Tinting",
+          services: [
+            { name: "Eye Brows Tinting", price: "£6" },
+            { name: "Eye Lashes Tinting", price: "£8" }
           ]
         }
       ]
     },
     {
+      id: "facial",
+      name: "Facials",
+      icon: <User className="h-5 w-5" />,
+      services: [
+        { name: "Mini Facial", price: "£15" },
+        { name: "Full Facial", price: "£25" },
+        { name: "Gold Facial", price: "£30" }
+      ]
+    },
+    {
       id: "other",
-      name: "Other Services",
+      name: "Hair & Makeup",
       icon: <Scissors className="h-5 w-5" />,
       subcategories: [
         {
-          name: "Henna & Hair",
+          name: "Hair Services",
           services: [
-            { name: "One Hand / Foot Henna", price: "From £5" },
-            { name: "Both Hands / Feet Henna", price: "From £10" },
-            { name: "Hair Trimming", price: "£7" },
-            { name: "Any Other Cut", price: "From £12" },
-            { name: "Children (Under 10)", price: "£10" }
+            { name: "Hair Trimming", price: "From £12" },
+            { name: "Children Cut", price: "From £12" },
+            { name: "Any Other Cut with Blow Dry", price: "£25" },
+            { name: "Blow Dry", price: "£15" }
           ]
         },
         {
-          name: "Makeup",
+          name: "Makeup Services",
           services: [
-            { name: "Party Makeup", price: "From £30" },
-            { name: "Bridal Makeup", price: "From £150" }
+            { name: "Party Makeup", price: "£45" },
+            { name: "Hair and Makeup", price: "£60" },
+            { name: "Wedding Makeup", price: "From £160" }
           ]
         }
       ]
