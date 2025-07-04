@@ -247,7 +247,7 @@ const Index = () => {
           </div>
           <div className="border-t border-rose-800 pt-6">
             <p className="text-rose-200 text-sm">
-              © 2024 Femina Beauty Impression. All rights reserved.
+              © {new Date().getFullYear()} Femina Beauty Impression. All rights reserved.
             </p>
           </div>
         </div>
