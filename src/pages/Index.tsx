@@ -10,8 +10,6 @@ import ContactMap from "@/components/ContactMap";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Testimonials from "@/components/Testimonials";
 import GoogleReviews from "@/components/GoogleReviews";
-import NewsletterPopup from "@/components/NewsletterPopup";
-import BookingCalendar from "@/components/BookingCalendar";
 
 const Index = () => {
   const heroImages = [
@@ -54,7 +52,11 @@ const Index = () => {
         <div className="container mx-auto px-4 py-3 lg:py-4">
           <div className="flex items-center justify-between">
             <div className="text-lg sm:text-xl md:text-2xl font-bold font-playfair text-rose-800 flex items-center gap-1 sm:gap-2">
-              <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-rose-600" />
+              <img 
+                src="/lovable-uploads/a37d99a7-55e8-421a-931e-19e46973c3ab.png" 
+                alt="Femina Beauty Impression" 
+                className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 object-contain"
+              />
               <span className="hidden sm:inline">Femina Beauty Impression</span>
               <span className="sm:hidden">Femina Beauty</span>
             </div>
@@ -202,9 +204,6 @@ const Index = () => {
       {/* Dynamic Services Section */}
       <ServicesSection />
 
-      {/* Booking Calendar Section */}
-      <BookingCalendar />
-
       {/* Testimonials Section */}
       <Testimonials />
 
@@ -215,7 +214,6 @@ const Index = () => {
       <ContactMap />
       <Chatbot />
       <WhatsAppButton />
-      <NewsletterPopup />
 
       {/* Call to Action */}
       <section className="py-8 sm:py-12 lg:py-16 px-4 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white relative overflow-hidden">
