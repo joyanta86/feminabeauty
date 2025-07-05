@@ -51,7 +51,10 @@ const Index = () => {
       <header className="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-rose-100">
         <div className="container mx-auto px-4 py-3 lg:py-4">
           <div className="flex items-center justify-between">
-            <div className="text-lg sm:text-xl md:text-2xl font-bold font-playfair text-rose-800 flex items-center gap-1 sm:gap-2">
+            <div 
+              className="text-lg sm:text-xl md:text-2xl font-bold font-playfair text-rose-800 flex items-center gap-1 sm:gap-2 cursor-pointer hover:opacity-80 transition-opacity"
+              onClick={() => window.location.href = '/'}
+            >
               <img 
                 src="/lovable-uploads/a37d99a7-55e8-421a-931e-19e46973c3ab.png" 
                 alt="Femina Beauty Impression" 
@@ -61,9 +64,15 @@ const Index = () => {
               <span className="sm:hidden">Femina Beauty</span>
             </div>
             <div className="flex items-center gap-2 md:gap-4">
-              <div className="hidden md:flex items-center gap-2 text-rose-700">
-                <Phone className="h-4 w-4" />
-                <span className="font-medium text-sm lg:text-base">+44 7368 594210</span>
+              <div className="hidden md:flex flex-col items-end gap-1 text-rose-700">
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <span className="font-medium text-xs lg:text-sm">+44 7368 594210</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <span className="font-medium text-xs lg:text-sm">+44 7440 157297</span>
+                </div>
               </div>
               <Button 
                 size="sm"
@@ -152,7 +161,8 @@ const Index = () => {
                     Contact
                   </h3>
                   <p className="text-gray-700 text-sm mb-3">
-                    Tel: +44 7368 594210
+                    Tel: +44 7368 594210<br />
+                    Tel: +44 7440 157297
                   </p>
                   <div className="flex items-center justify-center gap-4">
                     <a href="https://www.facebook.com/profile.php?id=100066574856943" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors duration-200">
@@ -249,7 +259,10 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-rose-900 text-white py-8 sm:py-10 lg:py-12 px-4">
         <div className="container mx-auto text-center">
-          <div className="flex items-center justify-center gap-2 mb-3 lg:mb-4">
+          <div 
+            className="flex items-center justify-center gap-2 mb-3 lg:mb-4 cursor-pointer hover:opacity-80 transition-opacity"
+            onClick={() => window.location.href = '/'}
+          >
             <Sparkles className="h-5 w-5 lg:h-6 lg:w-6 text-rose-300" />
             <h3 className="text-xl sm:text-2xl font-bold font-playfair">Femina Beauty Impression</h3>
             <Sparkles className="h-5 w-5 lg:h-6 lg:w-6 text-rose-300" />
@@ -262,9 +275,15 @@ const Index = () => {
             <span className="hidden sm:inline text-rose-300">•</span>
             <p className="text-rose-100">(Inside Post Office)</p>
           </div>
-          <div className="flex items-center justify-center gap-2 mb-4 lg:mb-6">
-            <Phone className="h-4 w-4 text-rose-300" />
-            <p className="text-rose-100 text-sm sm:text-base">Tel: +44 7368 594210</p>
+          <div className="flex flex-col items-center justify-center gap-1 mb-4 lg:mb-6">
+            <div className="flex items-center gap-2">
+              <Phone className="h-4 w-4 text-rose-300" />
+              <p className="text-rose-100 text-sm sm:text-base">Tel: +44 7368 594210</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <Phone className="h-4 w-4 text-rose-300" />
+              <p className="text-rose-100 text-sm sm:text-base">Tel: +44 7440 157297</p>
+            </div>
           </div>
           <div className="border-t border-rose-800 pt-4 lg:pt-6">
             <p className="text-rose-200 text-xs sm:text-sm">

@@ -74,7 +74,8 @@ const ContactMap = () => {
                   <div>
                     <h3 className="font-semibold font-playfair text-rose-800 text-lg mb-2">Contact Us</h3>
                     <p className="text-gray-700 font-poppins mb-2">
-                      <strong>Phone:</strong> +44 7368 594210
+                      <strong>Phone:</strong> +44 7368 594210<br />
+                      <strong>Phone:</strong> +44 7440 157297
                     </p>
                     <p className="text-gray-600 font-poppins text-sm">
                       Call us to book your appointment or ask any questions
